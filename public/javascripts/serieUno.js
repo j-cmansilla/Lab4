@@ -6,6 +6,6 @@ function cipherData(){
     var textJSon = document.getElementById('textareaJSon');
     var text = textJSon.value;
     var textCipher = document.getElementById('textareaCifrado');
-    var token = jwt.encode(payload, secret,'HS512');
-    textCipher.value = token;
+    var token = jwt.encode(payload,secret);
+    alert(token);
 }
