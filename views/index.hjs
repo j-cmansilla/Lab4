@@ -3,11 +3,28 @@
   <head>
     <title>{{ title }}</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="/javascripts/serieUno.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   </head>
   <body>
-    <div>
+    <div class="contentDiv">
       <h1>{{ labTittle }}</h1>
       <h3>{{ description }}</h3>
     </div> 
+    <div>
+      <h1>Texto en JSon: </h1>
+      <div class="form-group">
+        <label for="textoEnJSon">Introduzca un texto en JSon:</label>
+        <textarea class="form-control" rows="5" id="textareaJSon"></textarea>
+        <button type="button" onclick="cipherData()" class="btn btn-primary">Cifrar</button>
+      </div>
+    </div>
+    <div>
+      <h1>Texto cifrado con JWT: </h1>
+      <div class="form-group">
+        <label for="textoEnJSon">Cifrado:</label>
+        <textarea class="form-control" rows="5" id="textareaCifrado"></textarea>
+      </div>
+    </div>
   </body>
 </html>

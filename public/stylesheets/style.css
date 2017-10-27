@@ -1,14 +1,19 @@
-body {
-  
-}
-
-div{
+.contentDiv {
   padding: 10px;
   background-color:cornflowerblue; 
   align-content: center;
   text-align: center;
   font: 25px "Lucida Console", Helvetica, Arial, sans-serif;
   color: azure;
+}
+
+textarea {
+    resize: none;
+}
+
+div{
+  font: "Lucida Console", Helvetica, Arial, sans-serif;
+  padding: 15px;
 }
 
 a {
