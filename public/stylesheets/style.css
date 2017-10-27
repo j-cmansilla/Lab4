@@ -1,6 +1,14 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  
+}
+
+div{
+  padding: 10px;
+  background-color:cornflowerblue; 
+  align-content: center;
+  text-align: center;
+  font: 25px "Lucida Console", Helvetica, Arial, sans-serif;
+  color: azure;
 }
 
 a {
