@@ -25,6 +25,6 @@ correspondientes dependiendo del resultado.
 MongoDB.
 
 ### Entregable:
-*Enlace hacia github ( https://github.com/ ) en donde contenga la aplicación. Se estará
+* Enlace hacia github ( https://github.com/ ) en donde contenga la aplicación. Se estará
 revisando que dentro del manejador de versiones existan varios commits y que no se suba
 solamente la versión final.
