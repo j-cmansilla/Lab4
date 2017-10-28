@@ -1,11 +1,24 @@
-var jwt = require('jwt-simple');
-var payload = { foo: 'bar' };
-var secret = 'secretKeyForJSON';
-
+//jason web token
+//var cryptoJSON = require('crypto-json');
 function cipherData(){
     var textJSon = document.getElementById('textareaJSon');
     var text = textJSon.value;
     var textCipher = document.getElementById('textareaCifrado');
-    var token = jwt.encode(payload,secret);
-    alert(token);
+    //textCipher.value = textCipher.value+" "+text;
+    
+    $.ajax({
+        url: "/cipher",
+        method: 'POST',
+        type: 'json',
+        data: {"value": text},
+        success: function(res){
+            console.log(res);
+            if(res.sucess){
+                console.log('Token generado');
+                textCipher.value = res.token;
+            }
+        }
+    });
+
+
 }

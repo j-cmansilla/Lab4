@@ -1,3 +1,6 @@
+body{
+  font: "Lucida Console", Helvetica, Arial, sans-serif;
+}
 .contentDiv {
   padding: 10px;
   background-color:cornflowerblue; 
