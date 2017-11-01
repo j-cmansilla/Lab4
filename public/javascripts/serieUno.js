@@ -1,5 +1,3 @@
-//jason web token
-//var cryptoJSON = require('crypto-json');
 function cipherData(){
     var textJSon = document.getElementById('textareaJSon');
     var text = textJSon.value;

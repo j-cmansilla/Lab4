@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{ title }}</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/bootstrap.min.css' />
+    <script src="/javascripts/jquery-3.2.1.min.js"></script>
+    <script src="/javascripts/bootstrap.min.js"></script>
+    <script src="/javascripts/serieUno.js"></script>
+  </head>
+  <body>
+    <div class="contentDiv">
+      <h1>{{ labTittle }}</h1>
+      <h3>{{ description }}</h3>
+    </div> 
+    <div>
+      <h1>Pizzas </h1>
+      <form></form>
+      <div class="form-group">
+        <textarea class="form-control" rows="5" id="textareaJSon"></textarea>
+        <button type="button" onclick="cipherData()" class="btn btn-primary">Generar token</button>
+      </div>
+    </div>
+    <div>
+      <h1>Token: </h1>
+      <div class="form-group">
+        <textarea class="form-control" rows="5" id="textareaCifrado"></textarea>
+      </div>
+      <h1>Para descifrar el texto use la llave: lab4</h1>
+    </div>
+  </body>
+</html>
