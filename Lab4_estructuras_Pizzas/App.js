@@ -1,7 +1,19 @@
+'use strict';
+
 const Hapi = require('hapi');
+const routes = require('./routes');
 
 const server = new Hapi.Server();
 server.connection({ port: 3000, host: 'localhost' });
+server.route(routes);
+
+server.route({
+    method: 'GET',
+    path: '/routes/Index',
+    handler: function (request, reply) {
+        reply.file('./routes/Index.html');
+    }
+});
 server.start((err) => {
     
         if (err) {
@@ -18,17 +30,9 @@ server.register(require('inert'), (err) => {
     
         server.route({
             method: 'GET',
-            path: '/Main',
+            path: '/',
             handler: function (request, reply) {
-                reply.file('./Main.html');
-            }
-        });
-        
-        server.route({
-            method: 'GET',
-            path: '/serie1',
-            handler: function (request, reply) {
-                reply.file('./serie1.html');
+                reply.file('./routes/Index.html');
             }
         });
     });

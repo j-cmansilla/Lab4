@@ -2,7 +2,9 @@ function getData(key, data){
     var privatetKey = document.getElementById(key);
     var dataEncript = document.getElementById(data);
     var algorithm = 'aes-256-ctr';
+    var jwt = require('jsonwebtoken');
     
+
     function decrypt(password) {
         var decipher = crypto.createDecipher(algorithm, privateKey);
         var dec = decipher.update(password, 'hex', 'utf8');
@@ -18,9 +20,8 @@ function getData(key, data){
     }
     
     saveData( );
+    printDataJSon();
 }
-
-
 
 var txt;
 function saveData(txtEncripted){
@@ -31,3 +32,13 @@ function printDataJSon(){
   
 
 }
+
+let rutas = [{
+    method: 'GET',
+    path:'/routes/Serie1', 
+    handler: function (request, reply) {
+
+        reply.file('./routes/Serie1.html')
+    }
+}];
+module.exports = rutas;
