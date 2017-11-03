@@ -13,6 +13,8 @@
   "author": "chang",
   "license": "ISC",
   "dependencies": {
-    "hapi": "^16.6.2"
+    "hapi": "^16.6.2",
+    "inert": "^4.2.1",
+    "jsonwebtoken": "^8.1.0"
   }
 }
