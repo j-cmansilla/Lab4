@@ -1,3 +1,9 @@
+var lista = [];
+//nombre, una descripción, listado de ingredientes (array), tipo de masa, tamaño, cantidad de porciones, tiene o no extra queso.  
+
+
+
+
 let rutas = [{
     method: 'GET',
     path:'/routes/Pizza', 
