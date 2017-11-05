@@ -1,39 +1,42 @@
 var lista = [];
 //nombre, una descripción, listado de ingredientes (array), tipo de masa, tamaño, cantidad de porciones, tiene o no extra queso.  
-
+function newPizza(name,desc,items,dough,size,portions,chese)
+{
+    var getname = document.getElementById(name);
+    var getdesc = document.getElementById(desc);
+    var getitems = document.getElementById(items);
+    var getdough = document.getElementById(dough);
+    var getsize = document.getElementById(size);
+    var getportcount = document.getElementById(portions);
+    var getcheese = document.getElementById(chese);
+    var getpizzas = document.getElementById(pizza)
+     var Pizza = {name: getname.value,
+              descrip: getdesc.value,
+              items: getitems, 
+              doughtype: getdough.value,
+              size: getsize.value, 
+              portions: getportcount.value, 
+              chese: getcheese.value
+     };
+     lista.push(Pizza);
+     
+     var txt = `usuario = {
+        nombre: "${Pizza.name}",
+        descrip: ${Pizza.descrip},
+        items: ${Pizza.items}
+    }\n`
+    getpizzas.innerHTML = getpizzas.innerHTML + txt;
+}
 
 
 
 let rutas = [{
     method: 'GET',
     path:'/routes/Pizza', 
-    handler: function (request, reply) {
+    handler: (request, reply) => {
         reply.file('./routes/Pizza.html')
     }
-},{
-    method: 'GET',
-    path:'/Pizza/{id?}', 
-    handler: function (request, reply) {
-        if(request.params.id)
-            console.log(request.params.id);
-        else
-            console.log('not param found');
-        return reply({
-             status: 200, 
-             data: {
-                Pizza: "world"
-            }
-        });
-    }
-},{
-    method: 'GET',
-    path: '/routes/Serie1/{user*2}',
-    handler: function (request, reply) {
-        const userParts = request.params.user.split('/');
-        reply('Hello ' + encodeURIComponent(userParts[0]) + ' ' + encodeURIComponent(userParts[1]) + '!');
-    }
-}, {
-    method: 'POST',
+},{  method: 'POST',
     path:'/Pizza', 
     handler: function (request, reply) {
         return reply({

@@ -47,7 +47,7 @@ server.register(require('inert'), (err) => {
         server.route({
             method: 'GET',
             path: '/',
-            handler: function (request, reply) {
+            handler: (request, reply) => {
                 reply.file('./routes/Index.html');
             }
         });
