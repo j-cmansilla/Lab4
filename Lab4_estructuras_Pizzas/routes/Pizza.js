@@ -1,5 +1,11 @@
 let rutas = [{
     method: 'GET',
+    path:'/routes/Pizza', 
+    handler: function (request, reply) {
+        reply.file('./routes/Pizza.html')
+    }
+},{
+    method: 'GET',
     path:'/Pizza/{id?}', 
     handler: function (request, reply) {
         if(request.params.id)
@@ -9,9 +15,16 @@ let rutas = [{
         return reply({
              status: 200, 
              data: {
-                hello: "world"
+                Pizza: "world"
             }
         });
+    }
+},{
+    method: 'GET',
+    path: '/routes/Serie1/{user*2}',
+    handler: function (request, reply) {
+        const userParts = request.params.user.split('/');
+        reply('Hello ' + encodeURIComponent(userParts[0]) + ' ' + encodeURIComponent(userParts[1]) + '!');
     }
 }, {
     method: 'POST',
@@ -20,7 +33,7 @@ let rutas = [{
         return reply({
              status: 200, 
              data: {
-                hello: "world"
+                Pizza: "world"
             }
         });
     }
@@ -31,7 +44,7 @@ let rutas = [{
         return reply({
              status: 200, 
              data: {
-                hello: "world"
+                Pizza: "world"
             }
         });
     }
@@ -42,7 +55,7 @@ let rutas = [{
         return reply({
              status: 200, 
              data: {
-                hello: "world"
+                Pizza: "world"
             }
         });
     }

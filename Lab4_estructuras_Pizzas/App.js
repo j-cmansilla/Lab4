@@ -14,16 +14,15 @@ server.route({
         reply.file('./routes/Index.html');
     }
 });
+
 server.start((err) => {
-    
         if (err) {
             throw err;
         }
-        console.log(`Server running at: ${server.info.uri}`);
-    });
+        console.log(`Server running at: ${server.info.uri}`);    
+});
 
 server.register(require('inert'), (err) => {
-    
         if (err) {
             throw err;
         }

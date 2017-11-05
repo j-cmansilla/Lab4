@@ -1,5 +1,8 @@
 <!Doctype html>
 <html>
+    <head>
+        <meta charset="UTF-8">
+    </head>
     <body>
         <h1>Serie 1 Encriptacion</h1>
             <div class="Serie1">
@@ -8,8 +11,15 @@
         <input type="text" name="key" id="key" value="" placeholder="ingrese su clave secreta"/>
         <input type="text" name="data" id="data" value="" placeholder="ingrese su texto"/>
         <br>
-        <input type="submit" value="Encript" onclick="getData('key','data')"/>
+        <button type="button" src="Serie1.js"
+        onclick = "document.getElementById('encriptData').innerHTML = js1()">
+        Encript text. :)</button>
         <br>
-        <input type="text" name="encriptData" id="encriptData" value=""  placeholder=""/>
+        <p id="encriptData"></p>
+
+        <script language="javascript">
+                js1();
+        </script>
     </body>
+    
 </html>
