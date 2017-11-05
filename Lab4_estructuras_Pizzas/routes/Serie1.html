@@ -1,25 +1,140 @@
 <!Doctype html>
 <html>
+    <style>body {
+            font-family: Arial;
+            background: #222;
+            font-size: 14px;
+            color: #bbb;
+          }
+          
+          #header {
+            color: red;
+          }
+          
+          #payload {
+            color: purple;
+          }
+          
+          #signature {
+            color: blue;
+          }
+    .menu {
+        width: 200px;
+    }
+
+    .menu a {
+        background-color: #eee;
+        color: black;
+        display: block;
+        padding: 12px;
+        text-decoration: none;
+    }
+
+    .menu a:hover {
+        background-color: #ccc;
+    }
+
+    .menu a.active {
+        background-color: #4CAF50;
+        color: white;
+    }
+          </style>
     <head>
         <meta charset="UTF-8">
+        <script type="text/javascript">
+            function deleteData(){
+                var encriptData = document.getElementById('encriptData');
+                encriptData.innerHTML = "";
+                var encriptData = document.getElementById('header');
+                encriptData.innerHTML = "";
+                var encriptData = document.getElementById('payload');
+                encriptData.innerHTML = "";
+                var encriptData = document.getElementById('signature');
+                encriptData.innerHTML = "";
+            }
+        </script>
+        <script src="/Seri1.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/hmac-sha256.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/components/enc-base64-min.js"></script>
+        <script type="text/javascript">
+        function Do()
+        {
+            var header = {
+            "alg": "HS256",
+            "typ": "JWT"
+            };
+
+             var a = document.getElementById("id").value;
+            var b = document.getElementById("username").value;
+            var c = document.getElementById("data").value;
+            document.getElementById("encriptData").innerHTML = c;
+            var data = {
+                "id": a,
+                "username": b
+            };
+
+            var secret = c;
+
+            function base64url(source) {
+                encodedSource = CryptoJS.enc.Base64.stringify(source);
+                encodedSource = encodedSource.replace(/=+$/, '');
+                encodedSource = encodedSource.replace(/\+/g, '-');
+                encodedSource = encodedSource.replace(/\//g, '_');
+
+                return encodedSource;
+            }
+
+            var stringifiedHeader = CryptoJS.enc.Utf8.parse(JSON.stringify(header));
+            var encodedHeader = base64url(stringifiedHeader);
+            document.getElementById("header").innerText = encodedHeader;
+
+            var stringifiedData = CryptoJS.enc.Utf8.parse(JSON.stringify(data));
+            var encodedData = base64url(stringifiedData);
+            document.getElementById("payload").innerText = encodedData;
+
+            var signature = encodedHeader + "." + encodedData;
+            signature = CryptoJS.HmacSHA256(signature, secret);
+            signature = base64url(signature);
+
+            document.getElementById("signature").innerText = signature;
+        }
+        </script>
+        <script type = "text/javascript">
+        function print()
+        {
+            var x = document.getElementById("data").value;
+            document.getElementById("encriptData").innerHTML = x;
+        }
+        </script>
     </head>
     <body>
         <h1>Serie 1 Encriptacion</h1>
-            <div class="Serie1">
+            <div class="menu">
                 <a href="/routes/Index">Home</a>
             </div>
-        <input type="text" name="key" id="key" value="" placeholder="ingrese su clave secreta"/>
+        <br>
+        <input type="text" name="id" id="id" value="" placeholder="ingrese su ID"/>
+        <input type="text" name="username" id="username" value="" placeholder="ingrese su Usuario"/>
         <input type="text" name="data" id="data" value="" placeholder="ingrese su texto"/>
         <br>
-        <button type="button" src="Serie1.js"
-        onclick = "document.getElementById('encriptData').innerHTML = js1()">
-        Encript text. :)</button>
-        <br>
-        <p id="encriptData"></p>
+        <p>
+            <strong>JSON Web Token:</strong><br/>
+            <span id="header"></span>.<span id="payload"></span>.<span id="signature"></span>
+        </p>
 
-        <script language="javascript">
-                js1();
-        </script>
+
+        <br>
+        <button onclick="Do()">Encript text. :)</button>
+        <br>
+        <input type="submit" value="Clean" onclick="deleteData()"/>
+        
+        <!--<button type="button" src="Serie1.js"
+        onclick = "document.getElementById('encriptData').innerHTML = getData('key','data');">
+        encript. :)</button>-->
+
+        <!--<button onclick="print()">Test</button>
+        <br>
+        <h2>Encripted data</h2>
+        <p id="encriptData"></p>-->
     </body>
-    
 </html>

@@ -1,15 +1,40 @@
 <!Doctype html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-       
-    </head>
-    <body>
-        <h1>Lab 4 Desarrollo de APIs</h1>
-            <div class="Index">
-                <a href="/routes/Serie1">Serie 1</a>
-                <a href="/routes/Pizza">Serie 2</a>
-                <a href="#">Serie 3</a>
-            </div>
-    </body>
+<style>
+    body {
+            font-family: Arial;
+            background: #222;
+            font-size: 14px;
+            color: #bbb;
+          }
+          
+    .vertical-menu {
+        width: 200px;
+    }
+
+    .vertical-menu a {
+        background-color: #eee;
+        color: black;
+        display: block;
+        padding: 12px;
+        text-decoration: none;
+    }
+
+    .vertical-menu a:hover {
+        background-color: #ccc;
+    }
+
+    .vertical-menu a.active {
+        background-color: #4CAF50;
+        color: white;
+    }
+</style>
+<body>
+<h1>Lab 4 Desarrollo de APIs</h1>
+    <div class="vertical-menu">
+        <a href="/routes/Serie1">Serie 1</a>
+        <a href="/routes/Pizza">Serie 2</a>
+        <a href="#">Serie 3</a>
+    </div>
+</body>
 </html>
