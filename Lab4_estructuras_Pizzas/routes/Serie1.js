@@ -81,7 +81,7 @@ function printData(){
 let rutas = [{
     method: 'GET',
     path:'/routes/Serie1', 
-    handler: (request, reply) => {
+    handler: function (request, reply) {
         reply.file('./routes/Serie1.html')
     }
 },{
