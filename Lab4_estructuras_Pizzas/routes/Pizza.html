@@ -22,7 +22,7 @@
     </style>
     <head>
         <meta charset="UTF-8">
-       
+       <script src = "/routes/Pizza.js"></script>
     </head>
     <body>
         <h1>Pizzeria</h1>
@@ -39,7 +39,8 @@
                         <input type="text" id="myInput" placeholder="Ingredientes">
                         <!--<span onclick="newElement()" class="addBtn">Add</span>-->
                         <input type="submit" value="Agregar ingrediente" onclick="newElement()"/><br>
-                        <input type="submit" value="Agregar pizza" onclick="addNew()"/>
+                        <input type="submit" value="Agregar pizza" onclick="addNewPizza('name','desc','dough',
+                        'size', 'portions', 'cheese')"/>
                       </div>
                     <ul id="myUL">
                     </ul>
@@ -47,6 +48,7 @@
                         <tr>
                             <th>nombre</th><th>descripcion</th><th>Ingredientes</th><th>tipos de masa</th><th>tamaño</th><th>cantidad</th><th>queso extra</th>
                         </tr>
+                        <p id = "pizza"></p>
                 </table>
             </div>
         <script>

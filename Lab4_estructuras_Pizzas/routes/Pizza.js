@@ -1,18 +1,21 @@
 var lista = [];
 //nombre, una descripción, listado de ingredientes (array), tipo de masa, tamaño, cantidad de porciones, tiene o no extra queso.  
-function newPizza(name,desc,items,dough,size,portions,chese)
+function addNewPizza(name,desc,
+   // items,
+    dough,size,portions,chese)
 {
     var getname = document.getElementById(name);
     var getdesc = document.getElementById(desc);
-    var getitems = document.getElementById(items);
+    //var getitems = document.getElementById(items);
     var getdough = document.getElementById(dough);
     var getsize = document.getElementById(size);
     var getportcount = document.getElementById(portions);
     var getcheese = document.getElementById(chese);
-    var getpizzas = document.getElementById(pizza)
+    var getpizzas = document.getElementById(pizza);
+
      var Pizza = {name: getname.value,
               descrip: getdesc.value,
-              items: getitems, 
+              //items: getitems, 
               doughtype: getdough.value,
               size: getsize.value, 
               portions: getportcount.value, 
@@ -23,18 +26,21 @@ function newPizza(name,desc,items,dough,size,portions,chese)
      var txt = `usuario = {
         nombre: "${Pizza.name}",
         descrip: ${Pizza.descrip},
-        items: ${Pizza.items}
+        cheese: ${Pizza.chese}
     }\n`
     getpizzas.innerHTML = getpizzas.innerHTML + txt;
+    getname.innerHTML = "";
+    getdesc.innerHTML = "";
+    getdough.innerHTML = "";
+    getportcount.innerHTML = "";
+    getsize.innerHTML = "";
 }
-
-
 
 let rutas = [{
     method: 'GET',
     path:'/routes/Pizza', 
-    handler: (request, reply) => {
-        reply.file('./routes/Pizza.html')
+    handler: function (request, reply) {
+        reply.file('./routes/Pizza.html');
     }
 },{  method: 'POST',
     path:'/Pizza', 
