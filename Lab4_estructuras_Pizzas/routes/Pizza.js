@@ -1,4 +1,5 @@
 var lista = [];
+var tst = "";
 //nombre, una descripción, listado de ingredientes (array), tipo de masa, tamaño, cantidad de porciones, tiene o no extra queso.  
 function addNewPizza(name,desc,
    // items,
@@ -28,6 +29,8 @@ function addNewPizza(name,desc,
         descrip: ${Pizza.descrip},
         cheese: ${Pizza.chese}
     }\n`
+
+    tst = txt;
     getpizzas.innerHTML = getpizzas.innerHTML + txt;
     getname.innerHTML = "";
     getdesc.innerHTML = "";
@@ -43,14 +46,14 @@ let rutas = [{
         reply.file('./routes/Pizza.html');
     }
 },{  method: 'POST',
-    path:'/Pizza', 
+    path:'/routes/Pizza', 
     handler: function (request, reply) {
         return reply({
-             status: 200, 
-             data: {
-                Pizza: "world"
-            }
-        });
+            status: 200, 
+            data: {
+               Pizza: tst.value
+           }
+       });
     }
 }, {
     method: 'PUT',

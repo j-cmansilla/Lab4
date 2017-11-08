@@ -39,8 +39,12 @@
                         <input type="text" id="myInput" placeholder="Ingredientes">
                         <!--<span onclick="newElement()" class="addBtn">Add</span>-->
                         <input type="submit" value="Agregar ingrediente" onclick="newElement()"/><br>
-                        <input type="submit" value="Agregar pizza" onclick="addNewPizza('name','desc','dough',
-                        'size', 'portions', 'cheese')"/>
+                        <!-- <input type="submit" value="Agregar pizza" onclick="addNewPizza('name','desc','dough',
+                        'size', 'portions', 'cheese')"/>-->
+                        <form id="Pizza" action="./Pizza" method="POST">
+                            <button onclick="addNewPizza('name','desc','dough',
+                            'size', 'portions', 'cheese')">Agregar pizza</button>
+                        </form>
                       </div>
                     <ul id="myUL">
                     </ul>
