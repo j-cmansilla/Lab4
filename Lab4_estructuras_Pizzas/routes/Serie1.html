@@ -43,8 +43,8 @@
         <meta charset="UTF-8">
         <script type="text/javascript">
             function deleteData(){
-                var encriptData = document.getElementById('encriptData');
-                encriptData.innerHTML = "";
+               // var encriptData = document.getElementById('encriptData');
+                //encriptData.innerHTML = "";
                 var encriptData = document.getElementById('header');
                 encriptData.innerHTML = "";
                 var encriptData = document.getElementById('payload');
@@ -126,7 +126,7 @@
         <br>
         <button onclick="Do()">Encript text. :)</button>
         <br>
-        <input type="submit" value="Clean" onclick="deleteData()"/>
+        <button onclick="deleteData()">Clean</button>
         
         <!--<button type="button" src="Serie1.js"
         onclick = "document.getElementById('encriptData').innerHTML = getData('key','data');">

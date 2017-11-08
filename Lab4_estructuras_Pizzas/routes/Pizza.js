@@ -23,7 +23,7 @@ function addNewPizza(name,desc,
      };
      lista.push(Pizza);
      
-     var txt = `usuario = {
+     var txt = `pizza = {
         nombre: "${Pizza.name}",
         descrip: ${Pizza.descrip},
         cheese: ${Pizza.chese}
