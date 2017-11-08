@@ -26,7 +26,6 @@ router.post('/BuscarPorNombre', function(req, res, next){
 
 router.get('/:nombre', function(req, res, next){
 var nombrePizza = req.body.nombre;
-console.log("Estas buscando: "+nombrePizza);
 let pizza = pizzas.find(x=>x.nombre === nombrePizza);
 
 if(pizza){
@@ -41,7 +40,6 @@ else{
 });
 
 router.post('/', function(req,res,next){
-console.log(req.body);
 let nuevaPizza = {
     nombre: req.body.nombre,
     descripcion: req.body.descripcion,
@@ -57,43 +55,61 @@ sucess: true;
 res.status(201).end();
 });
 
-router.put('/:nombre', function(req, res, next){
-var nombrePizza = req.params.nombre;
-let pizza = pizzas.find(x=>x.nombre === nombrePizza);
-let temp = pizzas.filter(x=>x.nombre !== nombrePizza);
-if(pizza){
-    pizza = {
-        nombre: req.body.nombre,
-        descripcion: req.body.descripcion,
-        listaDeIngredientes: req.body.listaDeIngredientes,
-        tipoDeMasa: req.body.tipoDeMasa,
-        tamanio: req.body.tamanio,
-        porciones: req.body.porciones,
-        extraQueso: req.body.extraQueso
+router.put('/:pizzaToEdit', function(req, res, next){
+var pizzaToEdit = req.params.pizzaToEdit;
+newPizza = {
+    nombre: req.body.nombre,
+    descripcion: req.body.descripcion,
+    listaDeIngredientes: req.body.listaDeIngredientes,
+    tipoDeMasa: req.body.tipoDeMasa,
+    tamanio: req.body.tamanio,
+    porciones: req.body.porciones,
+    extraQueso: req.body.extraQueso
+}
+for(var i = 0; i < pizzas.length;i++){
+    if(pizzaToEdit == +i){
+        pizzas[i] = newPizza;
     }
-    temp.push(pizza);
-    pizzas = temp;
+}
+if(newPizza){
+    res.sucess = true;
+    res.send(pizzas);
+    res.status(200);
 }
 else{
-    let err = new Error("Not found!");
-    err.status = 404;
+    let err = new Error("No Content!");
+    err.status = 204;
     next(err);
 }
 });
 
 
-router.delete('/:nombre', function(req, res, next){
-var nombrePizza = req.params.nombre;   
-console.log("Eliminar: "+nombrePizza); 
+router.delete('/:pizzaToDelete', function(req, res, next){
+var nombrePizza = pizzas[req.params.pizzaToDelete].nombre; 
+var pizzaToDelete = req.params.pizzaToDelete;  
 let pizza = pizzas.find(x=>x.nombre === nombrePizza);
-let temp = pizzas.filter(x=>x.nombre !== nombrePizza);
+//let temp = pizzas.filter(x=>x.nombre !== nombrePizza);
+let tempTwo = [];
+for(var i = 0;i<pizzas.length;i++){
+    if(pizzaToDelete == +i){
+    }else{
+        tempTwo.push(pizzas[i]);
+    }
+}
+
 if(pizza){
-    pizzas = temp;
-    res.send(pizzas);
+    res.status(200);
+    pizzas = tempTwo;
+    if(tempTwo.length == 0){
+        var pizzasNull = [];
+        res.send(pizzasNull)
+    }else{
+        res.send(pizzas);
+    }
 }
 else{
-    let err = new Error("Not found!");
-    err.status = 404;
+    let err = new Error("No content!");
+    err.status = 204;
     next(err);
 }
 });
