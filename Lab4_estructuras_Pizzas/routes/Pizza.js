@@ -51,31 +51,15 @@ let rutas = [{
         return reply({
             status: 200, 
             data: {
-               Pizza: tst.value
+               Pizza: lista
            }
        });
     }
 }, {
-    method: 'PUT',
-    path:'/Pizza', 
-    handler: function (request, reply) {
-        return reply({
-             status: 200, 
-             data: {
-                Pizza: "world"
-            }
-        });
-    }
-}, {
     method: 'DELETE',
-    path:'/Pizza', 
+    path:'/routes/Pizza', 
     handler: function (request, reply) {
-        return reply({
-             status: 200, 
-             data: {
-                Pizza: "world"
-            }
-        });
+        reply.file('./routes/Pizza.html');
     }
 }];
 
