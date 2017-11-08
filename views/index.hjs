@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{ title }}</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/bootstrap.min.css' />
+    <script src="/javascripts/jquery-3.2.1.min.js"></script>
+    <script src="/javascripts/jquery.tabledit.min.js"></script>
+    <script src="/javascripts/jquery.tabledit.js"></script>
+    <script src="/javascripts/serie3.js"></script>
+  </head>
+  <body>
+  <div class = "contentDiv">
+      <h1>{{ labTittle }}</h1>
+      <h3>{{ description }}</h3>
+    </div> 
+    <div>
+      <div class="container">
+            <h2>Pizzas</h2>
+            <div class="form-group">
+              <label for="nombre">Nombre</label>
+              <input type="text" id="nombrePizza" class="form-control" />
+            </div>
+            <div class="form-group">
+              <label for="descripcion">Descripción</label>
+              <input type="text" id="descripcionPizza" class="form-control" />
+            </div>
+            <div class="form-group">
+              <label for="ingredientes">Lista de ingredientes</label>
+              <input type="text" id="listaIngredientes" class="form-control" />
+            </div>
+            <div class="form-group">
+              <label for="tipoDeMasa">Tipo de masa</label>
+              <input type="text" id="tipoDeMasa" class="form-control" />
+            </div>
+            <div class="form-group">
+              <label for="tamaño">Tamaño</label>
+              <form>
+                <input type="radio" id="peque" name="tamaño" value="peque" checked> Pequeña<br>
+                <input type="radio" id="mediana" name="tamaño" value="mediana"> Mediana<br>
+                <input type="radio" id="grande" name="tamaño" value="grande"> Grande<br>
+              </form>
+            </div>
+            <div class="form-group">
+              <label for="cantidadDePorciones">Porciones</label>
+              <input type="number" id="cantidadDePorciones" name="quantity" min="1" max="20">
+            </div>
+            <div class="form-group">
+              <label for="extraQueso">Tiene extra queso?</label>
+              <form>
+                <input type="radio" id="siExtraQueso" name="extraQueso" value="si" checked> Si<br>
+                <input type="radio" id="noExtraQueso" name="extraQueso" value="no"> No<br>
+              </form>
+            </div>
+            <div class="row">
+              <div class="col-xs-12">
+                <button  type="button" id="agregarPizza"
+                        class="btn btn-primary"
+                        onclick="agregarPizza();">
+                  Agregar Pizza
+              </button>
+              <button disabled="true" type="button" id="editarPizza"
+                        class="btn btn-success"
+                        onclick="guardarCambios();">
+                  Guardar Cambios
+              </button>
+              <button disabled="true" type="button" id="btnCancelar"
+                        class="btn btn-danger"
+                        onclick="cancelarCambios();">
+                  Cancelar
+              </button>
+              </div>
+            </div>
+            <!--<h2>Buscar Pizza</h2>
+            <div class="form-group">
+              <label for="nombre">Nombre</label>
+              <input type="text" id="nombrePizzaBuscar" class="form-control" />
+            </div>
+            <div class="row">
+              <div class="col-xs-12">
+                <button type="button" id="buscarPizza"
+                        class="btn btn-primary"
+                        onclick="buscarPizza();">
+                  Buscar Pizza
+              </button>
+              </div>
+            </div>-->
+            <div class="table-responsive">
+              <table id="pizzaTable" class="table" align="center">
+                <thead>
+                  <tr>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                    <th>Ingredientes</th>
+                    <th>Tipo de masa</th>
+                    <th>Tamaño</th>
+                    <th>Cantidad de porciones</th>
+                    <th>Extra queso</th>
+                    <th>Edit/Delete</th>
+                  </tr>
+                </thead>
+                <tbody>
+                </tbody>
+              </table>
+          </div>
+      </div>
+  </body>
+</html>
