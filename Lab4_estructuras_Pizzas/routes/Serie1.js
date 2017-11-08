@@ -84,11 +84,5 @@ let rutas = [{
     handler: (request, reply) => {
         reply.file('./routes/Serie1.html')
     }
-},{
-    method: ['PUT', 'POST'],
-    path:'/routes/Serie1', 
-    handler: function (request, reply) {
-        reply('fuck the world');//'Hello, ' + encodeURIComponent(request.params.name) + '!');
-    }
 }];
 module.exports = rutas;

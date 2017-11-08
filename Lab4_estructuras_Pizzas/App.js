@@ -2,10 +2,10 @@
 
 const Hapi = require('hapi');
 const routes = require('./routes');
-const Boom = require('boom');
-const mongoose = require('mongoose');
-const glob = require('glob');
-const path = require('path');
+//const Boom = require('boom');
+//const mongoose = require('mongoose');
+//const glob = require('glob');
+//const path = require('path');
 //const secret = require('./config');
 
 const server = new Hapi.Server();
@@ -19,14 +19,14 @@ server.auth.strategy('jwt', 'jwt', {
   });*/
 
 
-server.route({
+/*server.route({
     method: 'GET',
     path: '/routes/Index',
     handler: function (request, reply) {
         reply.file('./routes/Index.html');
     }
 });
-
+*/
 server.start((err) => {
         if (err) {
             throw err;
@@ -48,7 +48,7 @@ server.register(require('inert'), (err) => {
             method: 'GET',
             path: '/',
             handler: (request, reply) => {
-                reply.file('./routes/Index.html');
+                reply.file('./routes/Serie1.html');
             }
         });
     });
